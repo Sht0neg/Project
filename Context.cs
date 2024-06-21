@@ -9,7 +9,7 @@ namespace Project
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=pharmacy.db");
+            optionsBuilder.UseMySql("server=localhost;user=root;password=12345;database=pharmacy", new MySqlServerVersion(new Version(8, 4, 0)));
         }
     }
 }
