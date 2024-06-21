@@ -57,6 +57,7 @@ namespace Project
                 {
                     DialogResult = true;
                 }
+                DialogResult = false;
 
             }
             else
@@ -73,6 +74,7 @@ namespace Project
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            DialogResult = false;
             Close();
            
         }

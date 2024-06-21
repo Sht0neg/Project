@@ -56,7 +56,7 @@ namespace Project
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            DialogResult = false;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -76,6 +76,7 @@ namespace Project
 
                     DialogResult = true;
                 }
+                DialogResult = false;
             }
             else
             {

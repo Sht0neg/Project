@@ -41,21 +41,23 @@ namespace Project
 
         private void ReButton_Click(object sender, RoutedEventArgs e)
         {
+            
             if (GoodsDataGridView.SelectedItems.Count == 0) return;
-            Goods selgood = (Goods)GoodsDataGridView.SelectedItem;
+            Goods? selgood = context.Goods.Find(((Goods)GoodsDataGridView.SelectedItem).Id);
             AddGoodsWindow form = new(selgood, parent);
             bool? result = form.ShowDialog();
-            form.reProducer();
+            
             if (result == true)
             {
+                form.reProducer();
                 context.Goods.Update(selgood);
                 context.SaveChanges();
-                context = new Context();
-                context.Goods.Load();
 
-                GoodsDataGridView.ItemsSource = context.Goods.Local.ToObservableCollection();
-                
             }
+
+            context = new Context();
+            context.Goods.Load();
+            GoodsDataGridView.ItemsSource = context.Goods.Local.ToObservableCollection();
         }
 
         private void DelButton_Click(object sender, RoutedEventArgs e)

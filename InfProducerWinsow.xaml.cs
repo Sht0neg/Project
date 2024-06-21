@@ -57,6 +57,11 @@ namespace Project
                 context.Producers.Update(selProducer);
                 context.SaveChanges();
             }
+
+            context = new Context();
+            context.Producers.Load();
+
+            ProducersDataGrid.ItemsSource = context.Producers.Local.ToObservableCollection();
         }
     }
 }
