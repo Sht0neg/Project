@@ -41,7 +41,7 @@ namespace Project
         {
             context = new Context();
             //context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
             context.Producers.Load();
 
             ProducersDataGrid.ItemsSource = context.Producers.Local.ToObservableCollection();

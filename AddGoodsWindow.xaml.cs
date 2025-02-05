@@ -71,23 +71,24 @@ namespace Project
             }
             if (AddButton.Content == "Изменить")
             {
+                PriceBox.Text = PriceBox.Text.Replace(".", ",");
                 if (CheckGood(NameBox.Text, InterNameBox.Text, NumberBox.Text, PriceBox.Text, CountBox.Text))
                 {
 
                     DialogResult = true;
                 }
-                DialogResult = false;
+                else DialogResult = false;
             }
             else
             {
                 if (CheckGood(NameBox.Text, InterNameBox.Text, NumberBox.Text, PriceBox.Text, CountBox.Text))
                 {
-                    DateTime begin = DateTime.Today;
-                    DateTime end = DateTime.Today;
+                    DateOnly begin = DateOnly.FromDateTime(DateTime.Today);
+                    DateOnly end = DateOnly.FromDateTime(DateTime.Today);
                     string inter = NameBox.Text;
                     int count = 0;
-                    if (DataBeginBox.SelectedDate != null) begin = (DateTime)DataBeginBox.SelectedDate;
-                    if (DataEndBox.SelectedDate != null) end = (DateTime)DataEndBox.SelectedDate;
+                    if (DataBeginBox.SelectedDate != null) begin = DateOnly.FromDateTime((DateTime)DataBeginBox.SelectedDate);
+                    if (DataEndBox.SelectedDate != null) end = DateOnly.FromDateTime((DateTime)DataEndBox.SelectedDate);
                     if (InterNameBox.Text != "") inter = InterNameBox.Text;
                     if ((bool)YesBox.IsChecked) count = Convert.ToInt32(CountBox.Text);
                     parent.addGood(

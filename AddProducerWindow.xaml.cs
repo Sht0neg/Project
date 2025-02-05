@@ -57,7 +57,7 @@ namespace Project
                 {
                     DialogResult = true;
                 }
-                DialogResult = false;
+                else DialogResult = false;
 
             }
             else

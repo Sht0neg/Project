@@ -18,9 +18,9 @@ namespace Project
 
         public string Intenational { get; set;}
 
-        public DateTime? DataBegin { get; set; }
+        public DateOnly? DataBegin { get; set; }
 
-        public DateTime? DataEnd { get; set; }
+        public DateOnly? DataEnd { get; set; }
 
         public bool? Availability { get; set; }
 

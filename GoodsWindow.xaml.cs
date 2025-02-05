@@ -33,6 +33,7 @@ namespace Project
         {
             context = new Context();
 
+            //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
             context.Goods.Load();
 
