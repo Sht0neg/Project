@@ -1,0 +1,19 @@
+﻿<Window x:Class="Project.ExportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project"
+        mc:Ignorable="d"
+        Title="" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="ExcelButton" Width="200" Grid.Row="0" Height="60" Content="Excel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Click="ExcelButton_Click"/>
+        <Button x:Name="PdfButton" Width="200" Grid.Row="1" Height="60" Content="PDF" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Click="PdfButton_Click"/>
+        <Button x:Name="JsonButton" Width="200" Grid.Row="2" Height="60" Content="Json" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+    </Grid>
+</Window>
