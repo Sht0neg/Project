@@ -31,12 +31,12 @@
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
             <Label Content="Изготовлен:" FontSize="15" Margin="10, 25"/>
-            <DatePicker x:Name="DataBeginBox" SelectedDate="{Binding DataBegin}" Margin="30,-80,0,0" Width="200" Height="20" FontSize="10" />
+            <DatePicker x:Name="DataBeginBox" Margin="30,-80,0,0" Width="200" Height="20" FontSize="10" />
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
             <Label Content="Годен до:" FontSize="15" Margin="10, 25"/>
-            <DatePicker x:Name="DataEndBox" SelectedDate="{Binding DataEnd}" Margin="10,-80,0,0" Width="200" Height="20" FontSize="10"/>
+            <DatePicker x:Name="DataEndBox" Margin="10,-80,0,0" Width="200" Height="20" FontSize="10"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
             <Label Content="Наличие:" FontSize="15" Margin="10, 25"/>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,8 @@ namespace Project
 
             this.Title = "Изменение товара";
             AddButton.Content = "Изменить";
+            DataBeginBox.SelectedDate = good.DataBegin.Value.ToDateTime(new TimeOnly());
+            DataEndBox.SelectedDate = good.DataEnd.Value.ToDateTime(new TimeOnly());
 
             DataContext = good;
 
@@ -74,7 +77,8 @@ namespace Project
                 PriceBox.Text = PriceBox.Text.Replace(".", ",");
                 if (CheckGood(NameBox.Text, InterNameBox.Text, NumberBox.Text, PriceBox.Text, CountBox.Text))
                 {
-
+                    this.CurrentGood.DataEnd = DateOnly.FromDateTime((DateTime)DataEndBox.SelectedDate);
+                    this.CurrentGood.DataBegin = DateOnly.FromDateTime((DateTime)DataBeginBox.SelectedDate);
                     DialogResult = true;
                 }
                 else DialogResult = false;
