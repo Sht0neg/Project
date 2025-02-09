@@ -44,7 +44,7 @@ namespace Project
         public bool CheckProducer(string name, string adress, string phone, string inn) {
             if (name == "" || double.TryParse(name, out double numericValue)) { MessageBox.Show("Неправильно введено название!"); return false; };
             if (adress == "" || double.TryParse(adress, out double numeric)) { MessageBox.Show("Неправильно введен адресс!"); return false; };
-            if (!Regex.IsMatch(phone, @"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$", RegexOptions.IgnoreCase)) { MessageBox.Show("Неправильно введен номер телефона!"); return false; };
+            if (!Regex.IsMatch(phone, @"^((\+7|7|8)+([0-9]){10})$", RegexOptions.IgnoreCase)) { MessageBox.Show("Неправильно введен номер телефона!"); return false; };
             if (!Regex.IsMatch(inn, @"^[\d+]{10,12}$", RegexOptions.IgnoreCase)) { MessageBox.Show("Неправильно введен ИНН!"); return false; };
             return true;
         }
