@@ -18,6 +18,8 @@ using Microsoft.Win32;
 using Aspose.Pdf;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Project
 {
@@ -32,7 +34,8 @@ namespace Project
             InitializeComponent();
         }
 
-        public ExportWindow(string name) {
+        public ExportWindow(string name)
+        {
             InitializeComponent();
             this.Title = name;
         }
@@ -68,7 +71,8 @@ namespace Project
                     }
                 }
             }
-            else {
+            else
+            {
                 string query = "SELECT * FROM Producers";
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -131,7 +135,8 @@ namespace Project
                     }
                 }
             }
-            else {
+            else
+            {
                 string query = "SELECT * FROM Producers";
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -157,6 +162,46 @@ namespace Project
                         dialog.Title = "Select a folder";
                         bool? result = dialog.ShowDialog();
                         doc.Save($"{dialog.FolderName}\\ExportedProducers{DateOnly.FromDateTime(DateTime.Today).ToString().Replace(".", "")}.pdf");
+                    }
+                }
+            }
+            Close();
+        }
+
+        private void JsonButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Title == "Good")
+            {
+                var context = new Context();
+                context.Goods.Load();
+                var goods = context.Goods.Local.AsEnumerable();
+                OpenFolderDialog dialog = new OpenFolderDialog();
+                dialog.Multiselect = false;
+                dialog.Title = "Select a folder";
+                bool? result = dialog.ShowDialog();
+                foreach (var i in goods)
+                {
+                    var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(i);
+                    using (var writer = new StreamWriter($"{dialog.FolderName}\\ExportedGoods{DateOnly.FromDateTime(DateTime.Today).ToString().Replace(".", "")}.json", true))
+                    {
+                        writer.WriteLine(jsonRequest);
+                    }
+                }
+            }
+            else {
+                var context = new Context();
+                context.Producers.Load();
+                var producers = context.Producers.Local.AsEnumerable();
+                OpenFolderDialog dialog = new OpenFolderDialog();
+                dialog.Multiselect = false;
+                dialog.Title = "Select a folder";
+                bool? result = dialog.ShowDialog();
+                foreach (var i in producers)
+                {
+                    var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(i);
+                    using (var writer = new StreamWriter($"{dialog.FolderName}\\ExportedProducers{DateOnly.FromDateTime(DateTime.Today).ToString().Replace(".", "")}.json", true))
+                    {
+                        writer.WriteLine(jsonRequest);
                     }
                 }
             }

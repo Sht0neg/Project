@@ -14,6 +14,6 @@
         </Grid.RowDefinitions>
         <Button x:Name="ExcelButton" Width="200" Grid.Row="0" Height="60" Content="Excel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Click="ExcelButton_Click"/>
         <Button x:Name="PdfButton" Width="200" Grid.Row="1" Height="60" Content="PDF" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Click="PdfButton_Click"/>
-        <Button x:Name="JsonButton" Width="200" Grid.Row="2" Height="60" Content="Json" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Button x:Name="JsonButton" Width="200" Grid.Row="2" Height="60" Content="Json" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Click="JsonButton_Click"/>
     </Grid>
 </Window>
