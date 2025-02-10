@@ -63,5 +63,11 @@ namespace Project
 
             ProducersDataGrid.ItemsSource = context.Producers.Local.ToObservableCollection();
         }
+
+        private void DiagButton_Click(object sender, RoutedEventArgs e)
+        {
+            DiagramWindow diag = new DiagramWindow("");
+            diag.ShowDialog();
+        }
     }
 }

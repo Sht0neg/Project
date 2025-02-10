@@ -68,5 +68,11 @@ namespace Project
             MessageBoxResult result = MessageBox.Show($"Удалить товар с названием {selgood.Name}", "Подтверждение", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK) { context.Goods.Remove(selgood); context.SaveChanges(); }
         }
+
+        private void DiagButton_Click(object sender, RoutedEventArgs e)
+        {
+            DiagramWindow diagram = new DiagramWindow();
+            diagram.ShowDialog();
+        }
     }
 }

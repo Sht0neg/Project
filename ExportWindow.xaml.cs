@@ -179,6 +179,12 @@ namespace Project
                 dialog.Multiselect = false;
                 dialog.Title = "Select a folder";
                 bool? result = dialog.ShowDialog();
+                var di = new DirectoryInfo(dialog.FolderName);
+                foreach (var file in di.GetFiles()) {
+                    if (file.Name == $"ExportedGoods{DateOnly.FromDateTime(DateTime.Today).ToString().Replace(".", "")}.json") {
+                        file.Delete();
+                    }
+                }
                 foreach (var i in goods)
                 {
                     var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(i);
@@ -196,6 +202,14 @@ namespace Project
                 dialog.Multiselect = false;
                 dialog.Title = "Select a folder";
                 bool? result = dialog.ShowDialog();
+                var di = new DirectoryInfo(dialog.FolderName);
+                foreach (var file in di.GetFiles())
+                {
+                    if (file.Name == $"ExportedProducers{DateOnly.FromDateTime(DateTime.Today).ToString().Replace(".", "")}.json")
+                    {
+                        file.Delete();
+                    }
+                }
                 foreach (var i in producers)
                 {
                     var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(i);
