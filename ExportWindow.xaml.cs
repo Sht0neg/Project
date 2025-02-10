@@ -123,8 +123,8 @@ namespace Project
                         doc.Pages.Add();
                         Aspose.Pdf.Table table = new Aspose.Pdf.Table();
                         table.ColumnWidths = $"{dataTable.Columns[0].ColumnName.Count() * 7} {dataTable.Columns[1].ColumnName.Count() * 12} {dataTable.Columns[2].ColumnName.Count() * 4.5} {dataTable.Columns[3].ColumnName.Count() * 6} {dataTable.Columns[4].ColumnName.Count() * 8} 50 60 {dataTable.Columns[7].ColumnName.Count() * 5.7} {dataTable.Columns[8].ColumnName.Count() * 5.3} {dataTable.Columns[9].ColumnName.Count() * 7} {dataTable.Columns[10].ColumnName.Count() * 7} {dataTable.Columns[11].ColumnName.Count() * 5}";
-                        table.Border = new Aspose.Pdf.BorderInfo(Aspose.Pdf.BorderSide.All, .5f, Aspose.Pdf.Color.FromRgb(System.Drawing.Color.LightGray));
-                        table.DefaultCellBorder = new Aspose.Pdf.BorderInfo(Aspose.Pdf.BorderSide.All, .5f, Aspose.Pdf.Color.FromRgb(System.Drawing.Color.LightGray));
+                        table.Border = new BorderInfo(BorderSide.All, .5f, Aspose.Pdf.Color.FromRgb(System.Drawing.Color.LightGray));
+                        table.DefaultCellBorder = new BorderInfo(BorderSide.All, .5f, Aspose.Pdf.Color.FromRgb(System.Drawing.Color.LightGray));
                         table.ImportDataTable(dataTable, true, 0, 0, dataTable.Rows.Count, dataTable.Columns.Count);
                         doc.Pages[1].Paragraphs.Add(table);
                         OpenFolderDialog dialog = new OpenFolderDialog();
